@@ -1,0 +1,16 @@
+<div ng-class="{'col-md-9': $state.current.views['sidebarRight'], 'col-md-9 col-md-push-3': $state.current.views['sidebarLeft'], 'col-md-12': (!$state.current.views['sidebarRight'] && !$state.current.views['sidebarLeft'])}">
+
+  <!-- nested state ui-view "" -->
+  <div class="rs-main rs-panel" ui-view></div>
+
+</div>
+
+<!-- nested state ui-view "sidebarLeft" -->
+<div class="col-md-3 col-md-pull-9"
+  ng-if="$state.current.views['sidebarLeft']"
+  ui-view="sidebarLeft"></div>
+
+<!-- nested state ui-view "sidebarRight" -->
+<div class="col-md-3"
+  ng-if="$state.current.views['sidebarRight']"
+  ui-view="sidebarRight"></div>

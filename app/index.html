@@ -2,7 +2,7 @@
 <html class="no-js">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Sample App</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -20,6 +20,8 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+
+    <!-- Utility Nav -->
     <div collapse="isCollapsed" class="navbar navbar-utility navbar-inverse navbar-collapse collapse" role="navigation">
       <div class="container">
           <ul class="nav navbar-nav navbar-left">
@@ -34,6 +36,9 @@
           </ul>
       </div>
     </div>
+    <!-- End Utility Nav -->
+
+    <!-- Primary Nav -->
     <nav class="navbar navbar-primary">
       <div class="container">
         <div class="navbar-header">
@@ -55,28 +60,30 @@
         </div>
       </div>
     </nav>
+    <!-- End Primary Nav -->
 
-    <nav class="navbar navbar-default hidden-xs" ng-if="navItems[active.nav].subNav">
+    <!-- Primary Nav (mobile) -->
+    <!-- <nav class="navbar navbar-default hidden-xs" ng-if="navItems[active.nav].subNav">
       <div class="container">
         <ul class="nav navbar-nav navbar-left">
-           <li ng-repeat="item in navItems[active.nav].subNav" ng-class="item == active.subNav ? 'active' : ''" ng-click="active.subNav = item">
-             <a href="#">{{item}}</a>
+          <li ng-repeat="item in $state.current.data.navItems" ui-sref-active="active">
+            <a ui-sref="{{item.link}}">
+              {{item.name}}
+            </a>
           </li>
-         </ul>
+        </ul>
       </div>
-    </nav>
+    </nav> -->
+    <!-- END Primary Nav (mobile) -->
 
+    <!-- MAIN Container -->
     <div class="container clearfix">
-      <div class="row fade-in">
-        <div class="col-md-12" ng-class="{'col-md-9': $state.current.views['sidebarRight@'], 'col-md-9 col-md-push-3': $state.current.views['sidebarLeft@']}">
-          <div class="rs-main rs-panel" ui-view></div>
-        </div>
-        <div class="col-md-3 col-md-pull-9" ng-if="$state.current.views['sidebarLeft@']" ui-view="sidebarLeft@"></div>
-        <div class="col-md-3" ng-if="$state.current.views['sidebarRight@']" ui-view="sidebarRight@"></div>
-        <!-- <div class="col-md-3" ng-if="$state.current.data.sidebar" ui-view="sidebar" ng-class="{'col-md-pull-9': $state.current.data.sidebar=='left'  }"></div> -->
-      </div>
+      <!-- Root UI View -->
+      <div class="row fade-in" ui-view></div>
     </div>
 
+
+    <!-- FOOTER -->
     <div class="navbar navbar-inverse navbar-footer hidden-print">
       <div class="container">
         <ul class="nav navbar-nav list-inline">
@@ -94,19 +101,8 @@
           </li>
         </ul>
       </div>
-
     </div>
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-       }(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-    </script>
+    <!-- END FOOTER -->
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -114,10 +110,11 @@
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-strap/dist/angular-strap.js"></script>
+    <script src="bower_components/angular-strap/dist/angular-strap.tpl.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -126,6 +123,8 @@
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/about.js"></script>
     <script src="scripts/controllers/main-sidebar.js"></script>
+
+
     <!-- endbuild -->
 </body>
 </html>

@@ -2,12 +2,12 @@
   <div class="panel panel-section">
     <div class="panel-heading">
       <div class="btn-group pull-right">
-        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
+        <button id="actions" type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
           <i class="fa fa-gear"></i> Action <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu">
           <li role="presentation" class="dropdown-header">Manage</li>
-          <li><a href="#">Action</a></li>
+          <li><a ng-href="" data-content-template="views/popover/demo.html" data-placement="auto bottom-right" data-animation="am-fade" container="body" data-auto-close="1" target="#actions" bs-popover>Action</a></li>
           <li><a href="#">Another action</a></li>
           <li><a href="#">Something else here</a></li>
           <li role="presentation" class="dropdown-header">Monitor</li>
@@ -72,7 +72,7 @@
           <div class="col-sm-10">
             <p class="form-control-static">
               100 GB
-              <i class="fa fa-pencil"></i>
+              <i class="fa fa-pencil" data-content-template="views/popover/demo.html" data-placement="auto right" data-animation="am-fade" container="body" data-auto-close="1" bs-popover></i>
             </p>
           </div>
         </div>
@@ -200,21 +200,26 @@
       <h3 class="panel-title">Tabs</h3>
     </div>
     <div class="panel-body">
-      <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation"><a href="#home" role="tab" data-toggle="tab">Home <span class="badge">13</span></a></li>
-        <li role="presentation"><a href="#profile" role="tab" data-toggle="tab">Profile</a></li>
-        <li role="presentation"><a href="#messages" role="tab" data-toggle="tab">Messages <i class="fa fa-question-circle"></i></a></li>
-        <li role="presentation"><a href="#settings" role="tab" data-toggle="tab">Settings <small>(3)</small></a></li>
-      </ul>
-      <!-- Tab panes -->
-      <div class="tab-content">
-        <div role="tabpanel" class="tab-pane panel-body" id="home">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates omnis iure sequi quia dignissimos cumque sint esse alias odit numquam, inventore tenetur fugiat beatae ex culpa impedit ad saepe velit!</p>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="profile">...</div>
-        <div role="tabpanel" class="tab-pane" id="messages">...</div>
-        <div role="tabpanel" class="tab-pane" id="settings">...</div>
-      </div>
+      <tabset>
+        <tab>
+          <tab-heading>
+            Home <small>(3)</small>
+          </tab-heading>
+          I've got an HTML heading, and a select callback. Pretty cool!
+        </tab>
+        <tab heading="Profile">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste iure quaerat excepturi nobis ad itaque commodi omnis, rem, incidunt error pariatur veniam, architecto ut sapiente tempore praesentium in eligendi doloremque.
+        </tab>
+        <tab>
+          <tab-heading>
+            Icon <i class="fa fa-question-circle"></i>
+          </tab-heading>
+          I've got an HTML heading, and a select callback. Pretty cool!
+        </tab>
+        <tab heading="Messages">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et doloribus esse aliquam eveniet voluptatum culpa minima, distinctio fuga cupiditate quisquam deleniti impedit dignissimos voluptates aperiam est illo, repellat ut maiores?
+        </tab>
+      </tabset>
     </div>
   </div>
 

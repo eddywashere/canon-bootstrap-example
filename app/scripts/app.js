@@ -13,10 +13,10 @@ angular
     'ngAnimate',
     'ngCookies',
     'ngResource',
-    'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ui.router'
+    'ui.router',
+    'mgcrea.ngStrap'
   ])
   .run(
     ['$rootScope', '$state', '$stateParams',
@@ -37,9 +37,11 @@ angular
     //
     // Now set up the states
     $stateProvider
+    // nested home section state
       .state('home', {
         abstract: true,
-        template: '<ui-view/>',
+        controller: 'AboutCtrl',
+        templateUrl: 'views/layout.html',
         data: {
           navItems:
             [
@@ -75,12 +77,10 @@ angular
         url: '/left',
         views: {
           '': {
-            templateUrl: 'views/left.html',
-            controller: 'AboutCtrl'
+            templateUrl: 'views/left.html'
           },
-          'sidebarLeft@': {
-            templateUrl: 'views/left.sidebar.html',
-            controller: 'MainSidebarCtrl'
+          'sidebarLeft': {
+            templateUrl: 'views/left.sidebar.html'
           }
         }
       })
@@ -91,7 +91,7 @@ angular
             templateUrl: 'views/right.html',
             controller: 'AboutCtrl'
           },
-          'sidebarRight@': {
+          'sidebarRight': {
             templateUrl: 'views/right.sidebar.html',
             controller: 'MainSidebarCtrl'
           }
