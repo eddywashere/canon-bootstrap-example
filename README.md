@@ -1,12 +1,16 @@
-# cb-app
+# canon bootstrap example
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.11.1.
+An angular app with ui-router to control layout/sidebar state, ngstrap for bootstrap directives.
+
+## Setup
+
+```
+npm install grunt-cli -g
+npm install
+bower install
+grunt serve
+```
 
 ## Build & development
 
 Run `grunt` for building and `grunt serve` for preview.
-
-## Testing
-
-Running `grunt test` will run the unit tests with karma.
